@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// 你拥有一个总计n的硬币去形成一个阶梯式的形状，其中每k层必须满足k个硬币
+// 给定n，找到所形成的满足阶梯式形状的总和
+// n一定是非负整数，并且适合32位整数
+// n = 5
+
+// The coins can form the following rows:
+// ¤
+// ¤ ¤
+// ¤ ¤
+
+// Because the 3rd row is incomplete, we return 2.
+    function arrangeCoins(n){
+        for(var i=1;;i++){
+            if(n>=i){
+                n-=i;
+            }else{
+                return i-1;
+            }
+        }
+    }
+    console.log(arrangeCoins(5));//2
+    </script>
+</body>
+</html>

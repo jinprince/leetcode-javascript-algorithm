@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 给定一个排好序的数组，移除相应位置的重复项即每个元素仅出现一次，并且返回新的长度。
+    // 不要分配额外的空间，你必须在当前的内存中进行操作
+    // 思路:
+    // - 比较当前元素与之后的元素是否相等，如果相等，移除当前元素，否则，i向后移动一位
+    // - 返回新数组的长度
+       var arr=[5,9,10,66,77,77,99,100];
+       function fn(){
+           for(let i=0;i<arr.length;i++){
+               if(arr[i]===arr[i+1]){
+                   arr.splice(i,1);
+               }else{
+                   i++;
+               }
+           }
+           return arr.length;
+       }
+       console.log(fn(arr));
+
+       
+    </script>
+</body>
+</html>

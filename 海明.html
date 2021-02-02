@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+//   两个整数之间的海明距离是在相应的位不同的位置数目。
+//   给两个整数x和y，计算海明距离
+// Input: x = 1, y = 4
+
+// Output: 2
+
+// Explanation:
+// 1   (0 0 0 1)
+// 4   (0 1 0 0)
+    //    ↑   ↑
+    // 可以通过将两个整数异或，然后计算二进制中的1的数目，即是海明距离。
+
+    var hammingDistance = function (x, y) {
+    var w = x ^ y;
+    console.log(w);
+  	var count = 0;
+  	while(w){
+        if(w & 1){
+            count++;
+        }
+      	w >>= 1;
+    }
+  	return w
+}
+hammingDistance(1,4);
+  </script>  
+</body>
+</html>

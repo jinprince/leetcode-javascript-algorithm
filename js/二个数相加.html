@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//     给定一组整数，然后两个相加和为指定目标的两个数字的下标。
+
+//    你可以假定每个输出将有确定的一个解决方案，并且你不可以使用相同的元素
+// Given nums = [2, 7, 11, 15], target = 9,
+// Because nums[0] + nums[1] = 2 + 7 = 9,
+// return [0, 1].
+   var num1=[11,15,1,8];
+    var target=9;
+    // function getSum(num1,target){
+        
+    //     for(var i=0;i<num1.length;i++){
+    //     for(var j=i+1;j<num1.length-1;j++){
+    //         if(num1[i]+num1[j]===target){
+    //             return [i,j];
+    //         }
+    //     }
+    // }
+    // }
+//     /**
+//  * @param {number[]} nums
+//  * @param {number} target
+//  * @return {number[]}
+//  */
+var twoSum = function(nums, target) {
+    for(let i = 0; i < nums.length - 1; i++){
+        for(let j = i + 1; j < nums.length; j++){
+            if(nums[i] + nums[j] === target){
+                return [i, j];
+            }
+        }
+    }
+};
+   
+    console.log(twoSum(num1,target));
+    </script>
+</body>
+</html>

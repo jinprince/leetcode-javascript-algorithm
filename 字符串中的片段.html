@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// 统计一个字符串中片段的数量，片段被定义为没有空白字符的连续字串。
+// 请注意字符串中不含有非空白字符
+// Input: "Hello, my name is John"
+// Output: 5
+// - 首先，使用正则表达式将两边的空白字符
+// - 然后，将中间的多个空白字符替换成一个空白字符
+// - 然后使用split分割它们，计算出整个数组的长度
+    function fn(str){
+        str=str.trim();
+        var reg=/\s+/g;
+        str=str.replace(reg," ");
+        var arr=str.split(" ");
+        if(!str){
+            return 0;
+        }
+        return arr.length;
+    }
+    console.log(fn("Hello, my name is John jmx boy"));
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //  <!-- 判断一个整数是否是一个回文。没有额外的空间。 -->
+       function huiwen(num){
+         var str1=""+num;
+         var str2=str1.split("").reverse().join("");
+         if(str2===str1){
+             return true;
+         }
+         return false;
+       }
+       console.log(huiwen(12321));
+       console.log(huiwen(66266));
+    </script>
+   
+</body>
+</html>
