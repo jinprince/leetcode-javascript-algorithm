@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 给予两个数组，写一个函数去计算他们的交集
+        // nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2]
+        // 思路：介绍一下set的两个操作：forEach函数，内部接收一个函数，
+        // 主要可以用来遍历集合； has函数，可以来判断集合中是否含有当前元素
+        // 首先，我们可以建立两个根据两个数组建立两个数组。
+        // 然后，去遍历其中一个集合，然后去判断另一个集合中是否含有这个数字
+        // 如果含有，则将其放入结果数组中；
+        //  function jiaoji(arr1,arr2){
+        //      var set1=new Set(arr1);
+        //      var set2=new Set(arr2);
+        //      var newArr=[];
+        //      set1.forEach(item=>{
+        //         if(set2.has(item)){
+        //             newArr.push(item);
+        //         }
+        //      });
+        //      return newArr;
+        //  }
+           function jiaoji(arr1,arr2){
+               var newArr=[];
+                var set1=new Set(arr1);
+                var set2=new Set(arr2);
+                set1.forEach(item=>{
+                    if(set2.has(item)){
+                        newArr.push(item);
+                    }
+                })
+                return newArr;
+           }
+          
+         console.log(jiaoji([1,2,2,1,5],[2,2,7,5]));
+    </script>
+</body>
+</html>

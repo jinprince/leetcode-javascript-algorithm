@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+// 给定两个字符串，你需要去找到在两个字符串中的最长不同子序列。最长的不寻常的子序列被定义为这些字符串之一的最长子序列，而这个子序列不应该是其他字符串的任何序列。
+// 子序列是可以通过删除一些字符而不改变剩余元素的顺序从一个序列导出的序列。 简而言之，任何字符串本身都是一个子序列，空字符串是任何字符串的子序列。
+// 输入将是两个字符串，输出需要是最长的不常见子序列的长度。 如果最长不常见的子序列不存在，则返回-1
+// Input: "aba", "cdc"
+// Output: 3
+// 思路：
+// - 最长的子序列就是字符串本身，所以如果两个字符串不相等的时候，
+// 只需要返回两个字符串中最长字符串的长度就可以了。如果两个字符串相等，则返回-1.
+
+  function findLUSlength(str1,str2){
+        if(str1!=str2){
+            if(str1.length>str2.length){
+               return str1.length; 
+            }else{
+                return str2.length;
+            }
+        }else{
+            return -1;
+        }
+  }
+  console.log(findLUSlength("aba","cdcc"));//4
+    </script>
+</body>
+</html>
