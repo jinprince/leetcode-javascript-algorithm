@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 给定一个整数，写一个算法将它转换成16进制码
+        // 对于负数，需要使用二进制补码的方式
+        // Input:
+        //  26
+        // Output:
+        // "1a"
+// - 首先判断num是否为负数，如果是非负数，直接返回它的16进制码
+// - 如果是负数，首先取反，取反的方式可以是0xffffffff直接加上num的形式，然后再加一
+      function fn(num){
+          if(num>0){
+              return num.toString(16);
+          }else{
+              return (0xffffffff+num+1).toString(16);
+          }
+      }
+      console.log(fn(26));
+      console.log(fn(-1));
+      console.log(fn(-2));
+    </script>
+</body>
+</html>

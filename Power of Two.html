@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 给定一个整数，写一个函数去判断它是否为2的幂次方数
+        // - 将该数转化为2进制字符串
+        // - 然后，使用正则表达式判断
+        var isPowerOfTwo=function(n){
+            return (/^10*$/).test(n.toString(2));
+        }
+        console.log(isPowerOfTwo(4));
+        console.log(isPowerOfTwo(6));
+
+    </script>
+</body>
+</html>
