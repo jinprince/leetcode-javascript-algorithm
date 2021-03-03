@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    //    给定一个字符串，找到其中第一个不重复的字符，
+    //  并且返回它的下标。如果不存在，返回-1；
+    //s = "leetcode"
+      //return 0
+    //   s = "loveleetcode",
+    //   return 2.
+    // 思路
+//     - 使用map进行每个字符的数量存贮
+// - 然后遍历字符串，返回map中当前字符为1的字符的下标
+       function fn(s){
+           var map=new Map();
+           for(var i=0;i<s.length;i++){
+               if(!map.get(s[i])){
+                   map.set(s[i],1);
+               }else{
+                   map.set(s[i],map.get(s[i])+1);
+               }
+           }
+           for(var j=0;j<s.length;j++){
+               if(map.get(s[j])===1){
+                   return j;
+               }
+           }
+           return -1;
+       };
+        console.log(fn('leedcode'));
+    </script>
+</body>
+
+</html>

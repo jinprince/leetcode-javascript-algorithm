@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 给定一个包含小写或大写字母的字符串，
+        //查找一个由这些字符构建的最长的一个回文字符串。
+        // 一种特殊情况，例如“Aa”在这里不被考虑成一个回文
+        // Input:"abccccdd"
+        // Output:
+        //    7 
+        var longestPalindrome = function (s) {
+            if (s.length == 1) return 1;
+            const arr = [...s];
+            arr.sort();
+            let count = 0;
+            for (let i = 0; i < arr.length - 1;) {
+                if (arr[i] === arr[i + 1]) {
+                    count += 2;
+                    i += 2;
+                } else {
+                    i++;
+                }
+            }
+            if (count < arr.length) {
+                return count + 1;
+            }
+            return count;
+        };
+    </script>
+</body>
+
+</html>
