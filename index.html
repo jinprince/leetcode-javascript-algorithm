@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+    //    console.log(![]);
+    //    console.log([]==![]);
+    // var foo="11"+2-"1";
+    // console.log(foo);
+    // console.log(typeof foo);
+    function fn(str){
+        var newArr="";
+        arr=str.split("-");
+        console.log(arr[1].charAt(0))
+        
+        for(let i=1;i<arr.length;i++){
+           arr[i]=arr[i].charAt(0).toUpperCase()+arr[i].substr(1,arr[i].length-1);
+        }
+        for(let j=0;j<arr.length;j++){
+            newArr+=arr[j];
+        }
+        return newArr;
+    }
+    console.log(fn('get-element-by-id'))
+   </script> 
+</body>
+</html>

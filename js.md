@@ -201,6 +201,117 @@ var dom=docuemnt.getElementById("ID");
 dom.innerHTML="xxxx";
 dom.style.color="#000";
 ```
+#### 21、当一个DOM节点被点击时候，我们希望能够执行一个函数，我们应该怎么做？
+```js
+// 方法1：直接在DOM里绑定事件：
+<div onclick="test()"></div>
+在js里通过onclick绑定:xxx.onclick=test
+通过事件添加进行绑定：addEventListener(xxx,'click',test)
+javascript的事件流模型都有什么？
+"事件冒泡":事件开始由最具体的元素接受，然后逐级向上传播
+"事件捕捉":事件由最不具体的节点先接收，然后逐级向下，一直到最具体的
+"DOM事件流":三个阶段：事件捕捉，目标阶段，事件冒泡
+```
+#### 22、 看下列代码输出为何？解释原因？
+```js
+var a;
+alert(typeof a);//undefined
+alert(b);//报错
+
+```
+#### 23、解释22题
+```js
+解释：undefined是一个只有一个值的数据类型，这个值就是"undedined",在使用var
+声明变量但并未对其赋值进行初始化时，这个变量的值就是undefined。而b由于未声明将报错。注意未声明的变量和声明了未赋值的是不一样的
+
+```
+#### 24 看下列代码,输出什么？解释原因。
+```js
+var a=null;
+console.log(typeof a);//object
+解释 ：null是一个只有一个值的数据类型，这个值就是null。表示一个空指针对象，所有用typeof 检测会返回" object";
+```
+#### 25、看下列代码,输出什么？解释原因。
+```js
+undefined==null;//true
+1==true;//true
+2==true;//false
+0==false;//true
+0=="";//true
+NaN==NaN;//false
+[]==false;//false
+[]==！[]//true
+
+undefined与null相等，但不相等(===)
+一个是number一个string时，会尝试将转换为number
+尝试boolean转换为number或string，取决于另外一个对比量的类型
+所以，对于0，空字符串的判断，建议使用"===","==="会先判断两边的值类型，类型不匹配时为false
+ var foo="11"+2-"1";
+ console.log(foo);//111
+ console.log(typeof foo);//number
+```
+#### 26、看代码给答案。
+```js
+var a=new Objec();
+a.value=1;
+b=a;
+b.value=2;
+alert(a.value);//2
+
+```
+#### 27、已知数组
+```js
+var stringArray=["this","is","Baidu","Campus"]
+alert("this is Baidu Campus");
+// 方法：
+alert(stringArray.join(""));
+
+```
+#### 28、已知有字符串 foo=”get-element-by-id”,写一个 function 将其转化成驼峰表示法”getElementById”。
+```js
+function fn(str){
+    var arr=str.split("-");
+    for(var i=1;i<arr.length;i++>){
+        arr[i]=arr[i].charAt(0).toUpperCase()+arr[i].substr(1,arr[i].length-1);
+    }
+    str=arr.join("");
+    return str;
+}
+console.log(fn('get-element-by-id'))//返回getElementById
+
+```
+#### 29、var numberArray=[3,6,2,4,1,5];
+```js
+// 实现对数组的倒排，输出[5,1,4,2,6,3];
+numberArray.reverse();
+//实现对该数组的降序排列，输出[6,5,4,3,2,1];
+numberArray.sort((a,b)=>return b-a);
+```
+#### 29、输出今天的日期，以YYYY-MM-DD的方式，比如今天是2014年9月26日，则输出2014-09-26;
+```js
+var d=new Date();
+//获取年，getFullYear()返回4位数字
+var year=d.getFullYear();
+//获取月:月份比较特殊，0是1月，11是12月
+var month=d.getMonth+1;
+//变成两位
+month=month<10?"0"+month:month;
+//获取日
+var day=d.getDate();
+day=day<10?"0"+day:day;
+alert(year+'-'+month+'-'+day);
+```
+
+#### 30、将字符串"<tr><td>{$id}</td><td>{$name}</td></tr>"中{$id}替换成10，{$name}替换成Tony(使用正则表达式)
+```js
+"<tr><td>{$id}</td><td>{$id}_{$name}</td></tr>".replace(/{\$id}/g,"10").repace(/{\$name}/g,"Tony");
+```
+
+
+
+
+
+
 
 
 

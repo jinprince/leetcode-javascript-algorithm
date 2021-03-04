@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+    //   写一个函数去计算一个正数，
+    //   并且返回二进制中含有的1的数量(也众所周知的海明重量)
+// - 首先，将它转成二进制字符串
+// - 然后，计算字符串中的1字符的数量
+ function fn(num){
+     var str=num.toString(2);
+     console.log(str);
+     var n=0;
+     for(let i=0;i<str.length;i++){
+         if(str[i]==="1"){
+             n++;
+         }
+     }
+     
+     return n;
+ }
+ console.log(fn(100))
+
+  </script>  
+</body>
+</html>
