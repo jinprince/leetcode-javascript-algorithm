@@ -306,6 +306,122 @@ alert(year+'-'+month+'-'+day);
 ```js
 "<tr><td>{$id}</td><td>{$id}_{$name}</td></tr>".replace(/{\$id}/g,"10").repace(/{\$name}/g,"Tony");
 ```
+#### 31、为了保证页面输出安全，我们经常要对一些特殊的字符串进行转义，请写一个函数escapeHtml,将<,>,&,"进行转义
+```js
+function escapeHtml(str){
+    return str.replace(/[<>" &]/g,function(match){
+        switch(match){
+            case "<":
+            return "&lt;";
+            case ">":
+            return "&gt;";
+            case "&":
+            return "&amp;";
+            case "\"":
+            return "&quot";
+        }
+    });
+}
+
+```
+#### 32、foo=foo||bar,这行代码是什么意思？为什么要这样写？
+```js
+if(!foo) foo=bar;//如果foo存在，值不变，否则把bar的值赋给foo.
+短路表达式:作为"&&"和"||"操作符的操作数表达式，这些表达式在进行求值时只要最终的结果已经可以确认是真或者假，求值过程便告终止，这称之为短路求值。
+```
+#### 33、看下列代码，将会输出什么？(变量声明提升)
+```js
+var foo=1;
+(function(){
+    console.log(foo);//undefined
+    var foo=2;
+    console.log(foo)//2
+})()
+// 解释：
+// 函数声明与变量声明会被 JavaScript 引擎隐式地提升到当前作用域的顶部，但是只提升名
+// 称不会提升赋值部分
+```
+#### 34、用 js 实现随机选取10–100之间的 10 个数字，存入一个数组，并排序。
+```js
+function randomNum(len,min,max){
+          var arr=[];
+          for(let i=0;i<len;i++){
+              arr.push((min+parseInt(Math.random()*(max-min)+1)));
+          }
+          return arr.sort((a,b)=>a-b);
+
+      }
+      console.log(randomNum(10,10,100));
+
+```
+#### 35、把两个数组合并，并删除第二个元素
+```js
+var array1=['a','b','c'];
+var bArray=['d','e','f'];
+var cArray=array1.concat(bArray);
+cArray.splice(1,1);
+```
+#### 36、怎么添加、移除、移动、复制、创建和查找节点(原生js)
+```js
+//创建新节点
+creatDocumentFragment()//创建一个DOM片段
+createElement()//创建一个具体的元素
+createTextNode()//创建一个文本节点
+//添加、移除、替换、插入
+appendChild() //添加
+removeChild() //移除
+replaceChild() //替换
+insertBefore()// 插入
+//查找
+getElementsByTagName() //通过标签名称
+getElementsByName() //通过元素的Name属性的值
+getElementById()//通过元素Id,唯一性
+
+```
+#### 37、有这样一个 URL ：http://item.taobao.com/item.htm?a=1&b=2&c=&d=xxx&e ， 请写一段 JS 程序提取 URL 中的各个 GET 参数(参数名和参数个数不确定)，将其按 key-value 形 式 返 回 到 一 个 json 结构中，如{a:’1′, b:’2′, c:”, d:’xxx’, e:undefined}。
+```js
+function serilizeUrl(url){
+    var urlObject={};
+    if(/\?/.test(url)){
+        var urlString=url.substring(url.indexOf("?")+1);
+        var urlArray=urlString.split("&");
+        for(let i=0;len=urlArray.length;i<len;i++){
+            var urlItem=urlArray[i];
+            var item=urlItem.split("=");
+            urlObject[item[0]]=item[1];
+        }
+        return urlObject;
+    }
+    return null;
+}
+
+```
+#### 38、正则表达式构造函数 var reg=new RegEExp("xxx")与正则表达式字面量var reg=//有什么不同？匹配邮箱的正则表达式？
+```js
+ 当使用RegExp()构造函数的时候，不仅需要转义引号，并且还需要双斜杠。使用正则表达式字面量的效率更高。。
+邮箱的正则匹配：
+var regMail=/^([a-zA-Z9-9_-])+@([a-zA-Z0-9_-])+((.[a-zA-Z0-9_-]{2,3}){1,2})$/
+```
+#### 39、看下面代码，给出输出结果
+```js
+for(var i=0;i<3;i++){
+    setTimeout(function(){
+        console.log(i);
+    },0);
+}
+输出4,4,4
+```
+#### 40、写一个 function，清除字符串前后的空格。（兼容所有浏览器）
+```js
+使用自带接口trim(),考虑兼容性
+if(!String.prototype.trim){
+    String.prototype.trim=function(){
+        return this.replace(/^s\s+/,"").replace(/\s+$/,"");
+    }
+}
+
+```
+
 
 
 
