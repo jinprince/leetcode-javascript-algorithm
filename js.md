@@ -421,6 +421,161 @@ if(!String.prototype.trim){
 }
 
 ```
+#### 41、Javascript 中 callee 和 caller 的作用？
+```js
+caller 是返回一个对函数的引用，该函数调用了当前函数
+callee是返回正在被执行的function函数，也就是所有指定的function对象的正文。
+```
+#### 42、写出简单描述 html 标签（不带属性的开始标签和结束标签）的正则表达式，并将以下字符串中的 html 标签去除掉
+```js
+var reg=/<\/?\w+\/?>/gi;
+var str="<div>这里是div<p>里面的段落</p></div>"
+console.log(str.replace(reg,""));//"这里是div里面的段落"
+```
+#### 43、截取字符串 abcdefg 的 efg
+```js
+var str="abcdefg";
+console.log(str.substring(4));
+```
+#### 44、列举浏览器对象模型 BOM 里常用的至少 4 个对象，并列举 window对象的常用方法至少 5 个
+```js
+// 浏览器对象模型BOM:
+window,document,location,screen,history,navigator
+//window对象的常用方法：
+alert(),confirm(),prompt(),open(),close()
+```
+#### 45、简述创建函数的几种方式
+```js
+// 第一种(函数声明)
+function sum(num1,num2){
+    return num1+num2;
+}
+//第二种(函数表达式)
+var sun=function(num1,num2){
+    return num1+num2;
+}
+//第三种(函数对象模式)
+var sum=new Function("num1","num2","return num1+num2");
+```
+#### 46、iframe 的优缺点？
+```js
+优点：
+1、解决加载缓慢的第三方内容如图标和广告等的加载问题
+2、Security sandbox
+3、并行加载脚本
+缺点：
+1、iframe会阻塞主页面的Onload事件
+2、即时内容为空，加载也需要时间
+3、没有语意
+
+```
+#### 47、请你谈谈 Cookie 的弊端？
+```js
+缺点：
+1、Cookie数量和长度的限制。每个domain最多只能有20条cookie，每个cookie长度不能超过4KB，否则会被截掉。
+2、安全性问题。如果cooKie被人拦截了，那人就可以取得所有的session信息。即使加密也于事无补，因为拦截者并不需要知道cookie的意义，他只要原样转发cookie就可以达到目的了。
+3、有些状态不可能保存在客户端。例如，为了防止重复提交表单，我们需要在服务器端保存一个计数器，如果我们把这个计数器保存在客户端，那么它起不到任何作用。
+
+```
+#### 48、js 延迟加载的方式有哪些？
+```js
+1、defer和async
+2、 动态创建 DOM 方式（创建 script，插入到 DOM 中，加载完毕后 callBack
+3、按需异步载入js
+```
+#### 49、documen.write 和 innerHTML 的区别？
+```js
+document.write只能重绘这个页面
+innerHTML可以重绘页面的一部分
+```
+#### 50、事件委托是什么？
+```js
+让利用事件冒泡的原理，
+让自己的所触发的事件，
+让他的父元素代替执行！
+```
+#### 51、闭包是什么，有什么特性，对页面有什么影响？
+```js
+闭包就是能够读取其他函数内部变量的函数。本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。
+function outer(){
+    var num=1;
+    function inner(){
+        var n=2;
+        alert(n+num);
+    }
+    return inner;
+}
+outer()();//弹出3
+```
+#### 52、解释jsonp的原理，以及为什么不是真正的ajax。
+```js
+动态创建script标签，回调函数
+ajax是页面无刷新请求数据操作。
+```
+#### 53、javascript的本地对象，内置对象和宿主对象
+```js
+本地对象为array obj regexp等可以new 实例化
+内置对象为gload Math 等不可以实例化的
+宿主为浏览器自带的document,window等。
+```
+#### 54、字符串反转，如将'12345678'转为'87654321'
+```js
+先将字符串转换为数组 split()，
+利用数组的反序函数 reverse()颠倒数组，
+再利用 jion() 转换为字符串
+var str='12345678';
+str=str.split('').reverse().join('');
+```
+#### 55、将数字 12345678 转化成 RMB 形式 如： 12,345,678
+```js
+//思路：先将数字转为字符，
+//  str= str + '' ;
+//利用反转函数，每三位字符加一个 ',
+// '最后一位不加；
+// re()是自定义的反转函数，最后再反转回去！
+  function re(str){
+      return str.split('').reverse().join('');
+  }
+  function toRMB(num){
+      var temp="";
+      var str=re(num);
+      for(var i=1;i<str.length;i++){
+          temp+=str[i-1];
+          if(i%3==0&&i!str.length){
+              temp+=',';
+          }
+      }
+      return re(temp);
+  }
+  console.log(toRMB(12345678));
+```
+#### 56、下面结果是
+```js
+var name = 10; var obj = {} console.log(name + 10 + obj )
+结果是:'1010[object Object]'
+```
+#### 57、生成 5 个不同的随机数；
+```js
+//5 个不同的数，每生成一次就和前面的所有数字相比较，
+//如果有相同的，则放弃当前生成的数
+var num1=[];
+for(var i=0;i<5;i++){
+    num1[i]=Math.floor(Math.random()*10)+1;
+    for(var j=0;j<i;j++){
+        if(num1[i]==num1[j]){
+            i--;
+        }
+    }
+}
+
+```
+#### 58、如何在 HTML 中添加事件，几种方法？
+```js
+1、标签之中直接添加onclick="fun()";
+2、JS添加Eobj.onclick=method;
+3、现代事件：IE：obj.attachEvent('onclick',method);
+     FF:obj.addEventListenr('click',method,false);
+```
 
 
 

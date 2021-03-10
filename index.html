@@ -27,15 +27,45 @@
     // }
     // console.log(fn('get-element-by-id'))
     // return n+parseInt(Math.random()*(m-n+1));
-      function randomNum(len,min,max){
-          var arr=[];
-          for(let i=0;i<len;i++){
-              arr.push((min+parseInt(Math.random()*(max-min)+1)));
-          }
-          return arr.sort((a,b)=>a-b);
+    //   function randomNum(len,min,max){
+    //       var arr=[];
+    //       for(let i=0;i<len;i++){
+    //           arr.push((min+parseInt(Math.random()*(max-min)+1)));
+    //       }
+    //       return arr.sort((a,b)=>a-b);
 
-      }
-      console.log(randomNum(10,10,100));
+    //   }
+    //   console.log(randomNum(10,10,100));
+//     var reg=/<\/?\w+\/?>/gi;
+// var str="<div>这里是div<p>里面的段落</p></div>"
+// console.log(str.replace(reg,""));
+// function re(str) {
+//  str += '';
+//  return str.split("").reverse().join("");
+// }
+// function toRMB(num) {
+// var tmp='';
+//  for (var i = 1; i <= re(num).length; i++) {
+//  tmp += re(num)[i - 1];
+//  if (i % 3 == 0 && i != re(num).length) {
+//  tmp += ',';
+//  }
+//  }
+//  return re(tmp)
+// }
+// console.log(toRMB("123456789"));
+forEach=function (arr,fn){
+    {  for(var i=0,l=arr.length;i<l;i++){
+        var c=arr[i];        
+        if(fn.call(c,i,c)===false){   
+                    return false;      
+                  }    } };   
+}
+function box1(index,num) {  
+              console.log(index,num);
+             }      
+var arr=[10,9,8,7,6,5,4]; 
+forEach(arr,box1);
    </script> 
 </body>
 </html>
